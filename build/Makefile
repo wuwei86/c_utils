@@ -570,6 +570,30 @@ aes.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\c_utils.dir\build.make CMakeFiles/c_utils.dir/aes.c.s
 .PHONY : aes.c.s
 
+circleBuffer.obj: circleBuffer.c.obj
+.PHONY : circleBuffer.obj
+
+# target to build an object file
+circleBuffer.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\c_utils.dir\build.make CMakeFiles/c_utils.dir/circleBuffer.c.obj
+.PHONY : circleBuffer.c.obj
+
+circleBuffer.i: circleBuffer.c.i
+.PHONY : circleBuffer.i
+
+# target to preprocess a source file
+circleBuffer.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\c_utils.dir\build.make CMakeFiles/c_utils.dir/circleBuffer.c.i
+.PHONY : circleBuffer.c.i
+
+circleBuffer.s: circleBuffer.c.s
+.PHONY : circleBuffer.s
+
+# target to generate assembly for a file
+circleBuffer.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\c_utils.dir\build.make CMakeFiles/c_utils.dir/circleBuffer.c.s
+.PHONY : circleBuffer.c.s
+
 memory.obj: memory.c.obj
 .PHONY : memory.obj
 
@@ -664,6 +688,9 @@ help:
 	@echo ... aes.obj
 	@echo ... aes.i
 	@echo ... aes.s
+	@echo ... circleBuffer.obj
+	@echo ... circleBuffer.i
+	@echo ... circleBuffer.s
 	@echo ... memory.obj
 	@echo ... memory.i
 	@echo ... memory.s

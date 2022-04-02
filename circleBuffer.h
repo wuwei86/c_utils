@@ -5,7 +5,10 @@
 * 文件名称  ：CirclueBuffer.h
 * 摘要      ：循环队列的头文件
 *
-* Current Version 1.0--xiefuwei--2011.09.16
+* Current Version 1.1--xiefuwei--2012.07.10
+* 描述： 修改了在buffer最大数值时候的写的wrId的异常
+*
+* Previous Version 1.0--xiefuwei--2011.09.16
 * 描述： Create This file
 *        循环队列的操作接口，包括写数据，读数据，清空数据等等
 *
@@ -66,17 +69,6 @@ char ResetCircularBuf(CIRCLE_BUFF_T *pCBHandle);
 
 /******************************************************************************************************
 *
-* 函数介绍：    writeCircularBufZero --将队列的某一段数据写0
-* 输入参数说明：pCBHandle            --队列指针
-*               Length               --要写的长度
-* 输出参数说明：无
-* 返回值：      成功返回0,失败返回-1
-*******************************************************************************************************
-*/
-char WriteCircularBufZero(CIRCLE_BUFF_T *pCBHandle, unsigned char ucLength);
-
-/******************************************************************************************************
-*
 * 函数介绍：    writeCircularBuf --将队列的某一段数据写入队列
 * 输入参数说明：pCBHandle        --队列指针
 *               pData            --要写的数据
@@ -89,6 +81,17 @@ char WriteCircularBuf(CIRCLE_BUFF_T *pCBHandle, unsigned char *pData, unsigned c
 
 /******************************************************************************************************
 *
+* 函数介绍：    writeCircularBufOneByte --往循环队列写入一个字节数据
+* 输入参数说明：pCBHandle        --队列指针
+*               ucData           --要写的数据
+* 输出参数说明：无
+* 返回值：      成功返回0,失败返回-1
+*******************************************************************************************************
+*/
+char writeCircularBufOneByte(CIRCLE_BUFF_T *pCBHandle, unsigned char ucData);
+
+/******************************************************************************************************
+*
 * 函数介绍：    readCircularBuf --从队列读出某段数据，并且删除队列的该段数据
 * 输入参数说明：pCBHandle       --队列指针
 *               pData           --要读出来的数据
@@ -98,6 +101,17 @@ char WriteCircularBuf(CIRCLE_BUFF_T *pCBHandle, unsigned char *pData, unsigned c
 *******************************************************************************************************
 */
 char ReadCircularBuf(CIRCLE_BUFF_T *pCBHandle, unsigned char *pData, unsigned char *pLength);
+
+/******************************************************************************************************
+*
+* 函数介绍：    ReadCircularBufOneByte --从队列读出一个字节数据，并且删除队列的该段数据
+* 输入参数说明：pCBHandle       --队列指针
+*               pData           --要读出来的数据
+* 输出参数说明：无
+* 返回值：      成功返回0,失败返回-1
+*******************************************************************************************************
+*/
+char ReadCircularBufOneByte(CIRCLE_BUFF_T *pCBHandle, unsigned char *pData);
 
 /******************************************************************************************************
 *
@@ -121,6 +135,18 @@ char GetCircularBuf(CIRCLE_BUFF_T *pCBHandle, unsigned char *pData, unsigned cha
 *******************************************************************************************************
 */
 char ReleaseCircularBuf(CIRCLE_BUFF_T *pCBHandle, unsigned char *pLength);
+
+
+/******************************************************************************************************
+*
+* 函数介绍：    CheckCircularBuf  --检查缓冲区
+* 输入参数说明：pCBHandle         --队列指针
+*               Length            --要清空的长度
+* 输出参数说明：无
+* 返回值：      正确返回0,错误返回-1
+*******************************************************************************************************
+*/
+char CheckCircularBuf(CIRCLE_BUFF_T *pCBHandle);
 
 #endif
 

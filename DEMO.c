@@ -14,6 +14,7 @@
 #include "test.h"
 #include "memory.h"
 #include "aes.h"
+#include "circleBuffer.h"
 #include <stdlib.h>
 
 
